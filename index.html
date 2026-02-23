@@ -20,10 +20,9 @@ background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
 color:white;
 text-align:center;
 padding:50px 20px;
-overflow-x:hidden;
 }
 
-/* ===== Logo (Perfect Fit No Cut) ===== */
+/* ===== Logo ===== */
 .profile{
 width:190px;
 height:190px;
@@ -33,7 +32,7 @@ margin:0 auto 25px auto;
 border:4px solid #00f2ff;
 background:white;
 padding:12px;
-object-fit:contain;   /* logo cut nahi hoga */
+object-fit:contain;
 animation: glow 2s infinite alternate;
 }
 
@@ -42,43 +41,30 @@ from{box-shadow:0 0 15px #00f2ff;}
 to{box-shadow:0 0 30px #00f2ff;}
 }
 
-/* ===== Heading ===== */
 h1{
-font-size:42px;
-background:linear-gradient(90deg,#FFD700,#ffffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:40px;
 margin-bottom:10px;
 }
 
 .tagline{
-font-size:18px;
 color:#00f2ff;
 margin-bottom:40px;
 }
 
-/* ===== Stats Section ===== */
+/* ===== Stats Grid ===== */
 .stats{
-display:flex;
-justify-content:center;
-align-items:center;
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:20px;
-flex-wrap:nowrap;   /* ek line me rahenge */
-margin-bottom:45px;
+max-width:500px;
+margin:0 auto 50px auto;
 }
 
 .card{
 background:rgba(255,255,255,0.05);
 padding:25px;
 border-radius:15px;
-width:180px;
-box-shadow:0 0 20px rgba(0,255,255,0.15);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(0,255,255,0.3);
+box-shadow:0 0 15px rgba(0,255,255,0.2);
 }
 
 .card h2{
@@ -87,55 +73,50 @@ margin-bottom:10px;
 font-size:28px;
 }
 
+/* Accuracy niche full width */
+.accuracy{
+grid-column:1 / 3;
+}
+
 /* ===== Button ===== */
 .join-btn{
 display:inline-block;
-padding:16px 45px;
-font-size:18px;
+padding:15px 40px;
 border-radius:50px;
 background:linear-gradient(90deg,#00f2ff,#a100ff);
 color:white;
 text-decoration:none;
-box-shadow:0 0 25px #00f2ff;
-transition:0.3s;
-margin-bottom:60px;
-}
-
-.join-btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 35px #a100ff;
+margin-bottom:50px;
 }
 
 /* ===== Countdown ===== */
 .countdown-box{
 background:rgba(255,255,255,0.05);
-padding:35px;
+padding:30px;
 border-radius:20px;
-box-shadow:0 0 20px rgba(0,255,255,0.2);
-max-width:600px;
+max-width:500px;
 margin:auto;
 }
 
 .countdown{
-font-size:55px;
-font-weight:700;
+font-size:50px;
 color:#00f2ff;
-}
-
-/* ===== Footer ===== */
-footer{
-margin-top:70px;
-font-size:14px;
-opacity:0.7;
 }
 
 /* ===== Mobile Fix ===== */
 @media(max-width:600px){
-h1{font-size:30px;}
-.profile{width:150px;height:150px;}
-.countdown{font-size:40px;}
 .stats{
-overflow-x:auto;   /* mobile me scroll ho jayega */
+grid-template-columns:1fr;
+}
+.accuracy{
+grid-column:auto;
+}
+.profile{
+width:150px;
+height:150px;
+}
+h1{
+font-size:28px;
 }
 }
 </style>
@@ -143,13 +124,13 @@ overflow-x:auto;   /* mobile me scroll ho jayega */
 
 <body>
 
-<!-- Apna exact image name check kar lena -->
 <img src="file_00000000b12472099d50314732deee3e.png" class="profile">
 
 <h1>PROFESSOR PREDICTION</h1>
 <p class="tagline">Smart Match Insights & Reports</p>
 
 <div class="stats">
+
 <div class="card">
 <h2>100K+</h2>
 <p>Members</p>
@@ -160,10 +141,11 @@ overflow-x:auto;   /* mobile me scroll ho jayega */
 <p>Updates</p>
 </div>
 
-<div class="card">
+<div class="card accuracy">
 <h2>99%</h2>
 <p>Match Accuracy</p>
 </div>
+
 </div>
 
 <a href="https://t.me/+F_YG1MLIe943MmVl" class="join-btn" target="_blank">
@@ -175,10 +157,6 @@ overflow-x:auto;   /* mobile me scroll ho jayega */
 <div class="countdown" id="timer">59</div>
 <p>Seconds</p>
 </div>
-
-<footer>
-©️ 2026 Professor Prediction | All Rights Reserved
-</footer>
 
 <script>
 let timeLeft = 59;
