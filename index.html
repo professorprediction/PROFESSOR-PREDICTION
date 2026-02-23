@@ -4,75 +4,132 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Professor Prediction</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-background:#0f2027;
+background: radial-gradient(circle at top,#0f2027,#203a43,#2c5364);
 color:white;
 text-align:center;
-font-family:Arial;
-padding:40px 15px;
+padding:50px 20px;
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .profile{
-width:170px;
-height:170px;
+width:180px;
+height:180px;
 border-radius:50%;
 display:block;
-margin:0 auto 25px;
-border:4px solid cyan;
+margin:0 auto 30px;
+border:4px solid #00f2ff;
 background:white;
-padding:10px;
+padding:12px;
 object-fit:contain;
+animation:glow 2s infinite alternate;
 }
 
-/* Stats Layout */
+@keyframes glow{
+from{box-shadow:0 0 15px #00f2ff;}
+to{box-shadow:0 0 35px #00f2ff;}
+}
+
+/* ===== HEADING ===== */
+h1{
+font-size:38px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#FFD700,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.tagline{
+color:#00f2ff;
+margin-bottom:40px;
+}
+
+/* ===== STATS GRID ===== */
 .stats{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px;
-max-width:400px;
-margin:0 auto 40px;
+gap:20px;
+max-width:500px;
+margin:0 auto 50px;
 }
 
 .card{
-background:#1b3a4b;
-padding:20px;
-border-radius:10px;
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,255,255,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(0,255,255,0.4);
 }
 
 .card h2{
-color:cyan;
+color:#00f2ff;
+margin-bottom:10px;
+font-size:26px;
 }
 
-/* Accuracy niche full width */
+/* Accuracy full width */
 .accuracy{
 grid-column:1 / 3;
 }
 
-/* Button */
+/* ===== BUTTON ===== */
 .join-btn{
 display:inline-block;
-padding:12px 30px;
-background:cyan;
-color:black;
-border-radius:30px;
+padding:15px 40px;
+border-radius:50px;
+background:linear-gradient(90deg,#00f2ff,#a100ff);
+color:white;
 text-decoration:none;
-margin-bottom:40px;
+box-shadow:0 0 25px #00f2ff;
+transition:0.3s;
+margin-bottom:50px;
 }
 
-/* Countdown */
+.join-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px #a100ff;
+}
+
+/* ===== COUNTDOWN ===== */
 .countdown-box{
-background:#1b3a4b;
-padding:20px;
-border-radius:15px;
-max-width:400px;
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+max-width:500px;
 margin:auto;
 }
 
 .countdown{
-font-size:40px;
-color:cyan;
+font-size:50px;
+font-weight:700;
+color:#00f2ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+.profile{
+width:150px;
+height:150px;
+}
+h1{
+font-size:28px;
+}
 }
 </style>
 </head>
@@ -82,6 +139,7 @@ color:cyan;
 <img src="file_00000000b12472099d50314732deee3e.png" class="profile">
 
 <h1>PROFESSOR PREDICTION</h1>
+<p class="tagline">Smart Match Insights & Reports</p>
 
 <div class="stats">
 
@@ -102,10 +160,12 @@ color:cyan;
 
 </div>
 
-<a href="#" class="join-btn">Join Telegram</a>
+<a href="https://t.me/+F_YG1MLIe943MmVl" class="join-btn" target="_blank">
+🚀 Join Telegram Channel
+</a>
 
 <div class="countdown-box">
-<h2>Next Prediction In</h2>
+<h2 style="margin-bottom:20px;">Next Prediction In</h2>
 <div class="countdown" id="timer">59</div>
 <p>Seconds</p>
 </div>
@@ -116,7 +176,9 @@ const timer = document.getElementById("timer");
 
 setInterval(() => {
 timeLeft--;
-if(timeLeft < 0){ timeLeft = 59; }
+if(timeLeft < 0){
+timeLeft = 59;
+}
 timer.textContent = timeLeft;
 },1000);
 </script>
