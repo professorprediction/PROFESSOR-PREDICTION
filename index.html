@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professor Prediction</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+color:white;
+text-align:center;
+padding:40px 20px;
+overflow-x:hidden;
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+border:4px solid #00f2ff;
+box-shadow:0 0 30px #00f2ff;
+object-fit:cover;
+margin-bottom:25px;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 15px #00f2ff;}
+to{box-shadow:0 0 35px #00f2ff;}
+}
+
+h1{
+font-size:40px;
+background:linear-gradient(90deg,#FFD700,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
+}
+
+.tagline{
+font-size:18px;
+color:#00f2ff;
+margin-bottom:40px;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+width:170px;
+box-shadow:0 0 15px rgba(0,255,255,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+color:#00f2ff;
+margin-bottom:10px;
+font-size:28px;
+}
+
+.join-btn{
+display:inline-block;
+padding:16px 40px;
+font-size:18px;
+border-radius:50px;
+background:linear-gradient(90deg,#00f2ff,#a100ff);
+color:white;
+text-decoration:none;
+box-shadow:0 0 25px #00f2ff;
+transition:0.3s;
+margin-bottom:50px;
+}
+
+.join-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 35px #a100ff;
+}
+
+.countdown-box{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+max-width:600px;
+margin:auto;
+}
+
+.countdown{
+font-size:50px;
+font-weight:700;
+color:#00f2ff;
+}
+
+footer{
+margin-top:60px;
+font-size:14px;
+opacity:0.7;
+}
+
+@media(max-width:600px){
+h1{font-size:30px;}
+.profile{width:150px;height:150px;}
+.countdown{font-size:40px;}
+}
+</style>
+</head>
+
+<body>
+
+<img src="profile.png" class="profile">
+
+<h1>PROFESSOR PREDICTION</h1>
+<p class="tagline">Smart Match Insights & Reports</p>
+
+<div class="stats">
+<div class="card">
+<h2>100K+</h2>
+<p>Members</p>
+</div>
+
+<div class="card">
+<h2>Daily</h2>
+<p>Updates</p>
+</div>
+
+<div class="card">
+<h2>IPL</h2>
+<p>Match Reports</p>
+</div>
+</div>
+
+<a href="https://t.me/+F_YG1MLIe943MmVl" class="join-btn" target="_blank">
+🚀 Join Telegram Channel
+</a>
+
+<div class="countdown-box">
+<h2 style="margin-bottom:20px;">Next Prediction In</h2>
+<div class="countdown" id="timer">59</div>
+<p>Seconds</p>
+</div>
+
+<footer>
+© 2026 Professor Prediction | All Rights Reserved
+</footer>
+
+<script>
+let timeLeft = 59;
+const timer = document.getElementById("timer");
+
+setInterval(() => {
+timeLeft--;
+if(timeLeft < 0){
+timeLeft = 59;
+}
+timer.textContent = timeLeft;
+},1000);
+</script>
+
+</body>
+</html>
